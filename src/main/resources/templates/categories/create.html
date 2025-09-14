@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nouvelle categorie</title>
+</head>
+<body>
+<h1 th:text="${category.id == null ? 'Nouvelle Catégorie' : 'Modifier Catégorie'}"></h1>
+
+<form th:action="@{/categories}"
+      th:object="${category}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <input type="text" th:field="*{catCode}" placeholder="Code de la categorie"/>
+    <input type="text" th:field="*{catName}" placeholder="Nom de la categorie"/>
+    <button type="submit">Sauvegarder</button>
+</form>
+
+<a th:href="@{/categories}">Retour à la liste</a>
+</body>
+</html>
